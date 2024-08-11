@@ -122,5 +122,33 @@ x
 
 <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:6pt;"><span style="font-size:12pt;font-family:'Times New Roman',serif;color:#000000;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;">Tu hip&oacute;tesis es plausible y est&aacute; bien fundamentada en el texto. Los elogios de Jes&uacute;s por las acciones pasadas de la iglesia de &Eacute;feso contrastan con su cr&iacute;tica de que han dejado su &quot;primer amor&quot;. Esto sugiere que, aunque la iglesia demostr&oacute; virtudes significativas en el pasado, su estado espiritual actual no es el mismo, y hay una necesidad de renovaci&oacute;n y arrepentimiento. Por lo tanto, es posible que los hechos mencionados en Apocalipsis 2:2 ya hab&iacute;an sucedido y que el estado actual de la iglesia era diferente, tal como lo indica la reprensi&oacute;n en el vers&iacute;culo 4.</span></p>
 <br />
-&nbsp;</body>
+&nbsp;
+	<script>
+     function leerEnVozAlta() {
+    // Obtener el texto del elemento con la clase "contenido-texto"
+    var texto = document.querySelector('.contenido-texto').innerText;
+
+    // Dividir el texto en segmentos mÃ¡s pequeÃ±os
+    var partes = dividirTextoEnPartes(texto, 505); // Por ejemplo, 500 caracteres por parte
+
+    // Leer cada parte secuencialmente
+    partes.forEach((parte) => {
+        var mensaje = new SpeechSynthesisUtterance(parte);
+        mensaje.lang = 'es-ES';
+        mensaje.pitch = .5;
+        mensaje.rate = 1;
+        window.speechSynthesis.speak(mensaje);
+    });
+}
+
+function dividirTextoEnPartes(texto, tamano) {
+    var partes = [];
+    for (var i = 0; i < texto.length; i += tamano) {
+        partes.push(texto.slice(i, i + tamano));
+    }
+    return partes;
+}
+
+    </script>
+</body>
 </html>
